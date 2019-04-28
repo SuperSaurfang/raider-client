@@ -1,0 +1,38 @@
+<div id="header" class="bg-primary text-light d-flex justify-content-around">
+  <h1>Chatraum: {{chatName}}</h1>
+  <div class="d-flex align align-self-center">
+      <button class="btn btn-outline-light mr-2" (click)="logout()" >Logout</button>
+      <span class="align align-self-center mr-2">
+        Eingelogt als: {{displayName}}
+      </span>
+      <div class="dropdown">
+        <button class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenuButton" (click)="updateList()" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Chatraum wechseln
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item d-flex justify-content-between" *ngFor="let item of chatlist" href="/chatroom/{{item.room}}">
+            <span>{{item.room}}</span>
+            <span class="badge badge-primary badge-pill align-self-center">{{item.connections}}</span>
+          </a>
+          <!--<a routerLink="/chatroom/{{item.room}}">{{item.room}}</a>-->
+        </div>
+      </div>
+  </div>
+  
+</div>
+<div #scrollChat [scrollTop]="scrollChat.scrollHeight" id="chat-container">
+  <div *ngFor="let message of messages; let odd = odd; let even = even" class="p-2" [class.odd]="odd" [class.even]="even">
+    <span class="mr-1" id="dateTime">{{message.messageDate.toLocaleTimeString()}}</span>
+    <span class="mr-1" id="messageFrom">{{message.messageFrom}}:</span>
+    <span id="messageText">{{message.messageText}}</span>
+  </div>
+</div>
+<div id="input-container" class="bg-primary text-light p-2 position-fixed w-100">
+  <form class="d-flex align-items-center justify-content-center" [formGroup]="messageForm" (submit)="onSubmit($event)">
+      <textarea class="form-control mr-4 w-100" formControlName="message" required></textarea>
+      <button type="submit" [disabled]="!messageForm.valid" class="btn btn-outline-light w-25">
+        <fa-icon [icon]="faShare"></fa-icon>
+        Nachricht senden
+      </button>
+  </form>
+</div>

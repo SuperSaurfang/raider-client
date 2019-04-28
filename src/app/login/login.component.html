@@ -1,0 +1,39 @@
+<div class='flex-container shadow-lg w-100'>
+  <h1 class='text-center'>Einloggen</h1>
+
+  <form [formGroup]='userForm' (ngSubmit)="onSubmit()">
+    <div class="form-row pb-5">
+      <label class="col-12" for='username'>Benutzername</label>
+      <div class='input-group col-12'>
+        <div class='input-group-prepend'>
+          <label class="input-group-text" for='username'>
+            <fa-icon [icon]='pen'></fa-icon>
+          </label>
+        </div>
+        <input id='username' type='text' class='form-control' formControlName="userName">
+      </div>
+      <p class="col-12 text-danger" *ngIf="!userForm.controls.userName.valid">Bitte Benutzename eingeben!</p>
+    </div>
+    <div class="form-row pb-5">
+      <label class="col-12" for='password'>Passwort</label>
+      <div class='input-group col-12'>
+        <div class='input-group-prepend'>
+          <label class="input-group-text" for='password'>
+            <fa-icon [icon]='pen'></fa-icon>
+          </label>
+        </div>
+        <input id='password' type='password' class='form-control' formControlName="password">
+      </div>
+      <p class="col-12 text-danger" *ngIf='!userForm.controls.password.valid'>Ohne Passwort kein Zugang</p>
+    </div>
+    <button type='submit' [disabled]="!userForm.valid" class='btn btn-primary btn-block'>
+      Senden
+      <fa-icon [icon]='share'></fa-icon>
+    </button>
+  </form>
+
+  <button class="btn btn-secondary btn-sm float-right mt-3" (click)="routeBack()">
+      <fa-icon [icon]='arrowLeft'></fa-icon>
+    Zurück
+  </button>
+</div>

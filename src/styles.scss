@@ -1,0 +1,46 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap/scss/functions"; 
+@import "../node_modules/bootstrap/scss/variables";
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+$theme-colors: (
+  primary: $purple,
+  grey-100: $gray-100
+);
+
+.flex-container{
+  padding: 15px;
+  border: rgba(0, 0, 0, 0.2) 1px solid;
+  border-radius: 0.3rem;
+  background-color: rgb(245, 245, 245);
+}
+
+.odd{
+  background-color: theme-color("white")
+}
+
+.event{
+  background-color: theme-color("grey-100")
+}
+
+.ng-invalid{
+  border-color: $danger !important;
+}
+
+.ng-invalid:focus{
+  box-shadow: 0 0 0 0.2rem rgba($danger, 0.25) !important
+}
+
+.ng-valid{
+  border-color: $success !important;
+}
+
+.ng-valid:focus{
+  box-shadow: 0 0 0 0.2rem rgba($success, 0.25) !important
+}
+
+@import "../node_modules/bootstrap/scss/bootstrap";

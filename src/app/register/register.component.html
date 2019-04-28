@@ -1,0 +1,63 @@
+<div class="flex-container shadow-leg w-100">
+  <h1 class="text-center">Registrieren</h1>
+  <form [formGroup]="registerForm" (submit)="onSubmit()">
+      <div class="form-row pb-5">
+        <label class="col-12" for='username'>Loginname</label>
+        <div class='input-group col-12'>
+          <div class='input-group-prepend'>
+            <label class="input-group-text" for='username'>
+              <fa-icon [icon]='pen'></fa-icon>
+            </label>
+          </div>
+          <input id='username' type='text' class='form-control' formControlName="userName">
+        </div>
+        <p class="col-12 text-danger" *ngIf="!form['userName'].valid">Bitte Loginname eingeben!</p>
+      </div>
+      <div class="form-row pb-5">
+        <label class="col-12" for='displayname'>Anzeigename</label>
+        <div class='input-group col-12'>
+          <div class='input-group-prepend'>
+            <label class="input-group-text" for='displayname'>
+              <fa-icon [icon]='pen'></fa-icon>
+            </label>
+          </div>
+          <input id='displayname' type='text' class='form-control' formControlName="displayName">
+        </div>
+        <p class="col-12 text-danger" *ngIf="!form['displayName'].valid">Bitte Anzeigename eingeben!</p>
+      </div>
+      <div class="form-row pb-5">
+        <label class="col-12" for='password'>Passwort</label>
+        <div class='input-group col-12'>
+          <div class='input-group-prepend'>
+            <label class="input-group-text" for='password'>
+              <fa-icon [icon]='pen'></fa-icon>
+            </label>
+          </div>
+          <input id='password' type='password' class='form-control' formControlName="password">
+        </div>
+        <p class="col-12 text-danger" *ngIf="(form['password'].errors != null) && form['password'].errors['required']">Bitte Passwort eingeben!</p>
+        <p class="col-12 text-danger" *ngIf="(form['password'].errors != null) && form['password'].errors['minlength']">Das Passwort hat weniger als 8 Zeichen</p>
+      </div>
+      <div class="form-row pb-5">
+        <label class="col-12" for='confirmpassword'>Passwort wiederholen</label>
+        <div class='input-group col-12'>
+          <div class='input-group-prepend'>
+            <label class="input-group-text" for='confirmpassword'>
+              <fa-icon [icon]='pen'></fa-icon>
+            </label>
+          </div>
+          <input id='confirmpassword' type='password' class='form-control' formControlName="confirmPassword">
+        </div>
+        <p class="col-12 text-danger" *ngIf="(form['confirmPassword'].errors != null) && form['confirmPassword'].errors['required']">Bitte Passwort wiederholen!</p>
+        <p class="col-12 text-danger" *ngIf="(form['confirmPassword'].errors != null) && form['confirmPassword'].errors['mustMatch']">Passworter stimmen nicht überein</p>
+      </div>
+      <button type='submit' [disabled]="!registerForm.valid" class='btn btn-primary btn-block'>
+        Senden
+        <fa-icon [icon]='share'></fa-icon>
+      </button>
+  </form>
+  <button class="btn btn-secondary btn-sm float-right mt-3" (click)="routeBack()">
+    <fa-icon [icon]='arrowLeft'></fa-icon>
+    Zurück
+  </button>
+</div>

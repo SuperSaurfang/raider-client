@@ -1,0 +1,33 @@
+<div id="header" class="bg-primary text-light d-flex justify-content-around">
+  <h1>Chatraum wählen oder erstellen</h1>
+  <div class="align-self-center">
+      <button class="btn btn-outline-light" (click)='logout()'>Logout</button>
+      <span>
+        Eingelogt als: {{displayName}}
+      </span>
+  </div>
+</div>
+<div class="m-5 p-5 border rounded shadow-lg">
+  <h1>Verfügbare Chat Räume</h1>
+  <ul class="list-group">
+    <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+      <p>Chaträume</p>
+      <p>Verbundene Raider</p>
+    </li>
+    <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" *ngFor="let item of chatList">
+      <a routerLink="/chatroom/{{item.room}}">{{item.room}}</a>
+      <span class="badge badge-primary badge-pill">{{item.connections}}</span>
+    </li>
+  </ul>
+</div>
+
+<form [formGroup]="createChatRoomForm" class="m-5 p-5 border rounded shadow-lg d-flex justify-content-center align-items-center flex-wrap" (submit)="onSubmit($event)">
+  <h1>Chatraum erstellen</h1>
+  <label class="w-100" for="chatname">Wie soll der Chat heißen?</label>
+  <div class="input-group">
+    <input class="form-control w-75 h-auto" id="chatname" type="text" formControlName="chatname" required>
+    <div class="input-group-append w-25">
+        <button class="btn btn-primary w-100" type="submit" [disabled]="!createChatRoomForm.valid">Erstellen und betreten</button>
+    </div>
+  </div>
+</form>

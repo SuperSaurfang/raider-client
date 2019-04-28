@@ -1,0 +1,19 @@
+@import "../../../node_modules/bootstrap/scss/functions"; 
+@import "../../../node_modules/bootstrap/scss/variables";
+:host{
+    #input-container{
+        bottom: 0
+    }
+
+    #chat-container{
+        height: calc(100% - 134px);
+        overflow-y: scroll;
+    }
+    .odd{
+        background-color: $white
+    }
+    
+    .even{
+        background-color: $gray-100
+    }
+}
