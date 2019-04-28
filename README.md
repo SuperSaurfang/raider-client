@@ -2,26 +2,24 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.5.
 
-## Development server
+## Requirements:
+1. Node.js
+2. Raider Server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Prepations:
+1. open a terminal or shell and run 'npm install' to insall all dependencies
+2. Change all values mark with '\<uservalue>' in the envirroment files found in src/enviroment.
+    1. Example values for enviroment.ts:
+        1. restEndpoint: 123.123.123.123:1234/rest
+        2. socketUrl: 123.123.123.123:1234
+    2. Example values for enviroment.prod.ts
+        1. restEndpoint: /rest
+        2. socketUrl: 123.123.123.123:1234
+    make sure that the raide listen on the ip and port otherwise it doesn't work!
+3. start the raider server
 
-## Code scaffolding
+## Run Dev Server:
+If all prepations are done you could start the dev server with 'ng serve' when change and save anything the dev server is recompiling the code and reload the website.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Build project:
+With the following command 'ng build --prod --base-href /raider-client/' you could build the 'website'. In the dist folder you found a folder, copy this folder into the public folder from the server
