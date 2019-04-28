@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Requirements:
 1. Node.js
-2. Raider Server
+2. [Raider Server](https://github.com/SuperSaurfang/raider-server)
 
 ## Prepations:
 1. open a terminal or shell and run 'npm install' to insall all dependencies
