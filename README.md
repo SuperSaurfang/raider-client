@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/radiergummi90/bibliothek/_apis/build/status/SuperSaurfang.raider-client?branchName=master)](https://dev.azure.com/radiergummi90/bibliothek/_build/latest?definitionId=1&branchName=master)
+
 # RaiderClient
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.5.
